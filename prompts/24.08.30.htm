@@ -43,6 +43,8 @@
 
     <!--- Code for today's class --->
     <script id="notes1">
+
+    
     
     // * Let's talk JSON
     // JSON is used as a way to convey complex data over the web (e.g. getting data from an API elsewhere)
@@ -72,8 +74,8 @@
     
           
     // Let's look at *hoisting* of variables
-    
-    
+    console.log(x);
+
     
   
   
@@ -82,34 +84,56 @@
     //   (to learn more about functions, check out http://ejohn.org/apps/learn/)
     
     // If statements:
-    
-    
+    let y = 3;
+    if( y == 3 ){console.log("equals 3");}
+    else if( y == 5) {console.log("equals 5");}
+
     
     // Functions:
     
-  
+  console.log(favoriteColor());
+  let favoriteNumber = function() {return 8;}
+  console.log(favoriteNumber());
 
+  function display(f){
+    console.log(f());
+  }
+
+  display(favoriteColor)
+  display(favoriteNumber)
+
+  function addOne(number){
+    return function() {return number+1}
+  }
     
-    
+  console.log(addOne(3)());
+
+  let bestAnimal = () => {console.log("dog");}
+  bestAnimal();
+  let addNums = (num1 ,num2) =>  num1+num2;
+
+  let addOne = num => num+1;
+  console.log(addOne(11));
     
     // * Brief foray into "destructuring"
     // Javascript can help to destructure objects and arrays during variable assignment
     //  (Credit for some examples goes to https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f -- check this out for lots of other capabilities and examples of destructuring)
     
     
-    // let color = [24, 50, 240];
+    let color = [24, 50, 240];
     // let r = color[0];
     // let g = color[1];
     // let b = color[2];
-    // console.log(r,g,b);
+    let[r, g, b] = color;
+    console.log(r,g,b);
     
     
-    // let student = {name: "Herb Ertlinger", class: "INFO3300", age:21};
-    // 
-    // function printStudent( student ) {   // It also works when function parameters are declared!
-    //   console.log(student.name, student.class);
-    // }
-    // printStudent(student);
+    let student = {name: "Herb Ertlinger", class: "INFO3300", age:21};
+    
+    function printStudent( student ) {   // It also works when function parameters are declared!
+      console.log(student.name, student.class);
+    }
+    printStudent(student);
     
     
     // let width = 50;
@@ -121,14 +145,28 @@
     // 
     // console.log(width, height);
 
+    [width, height] = [height, width];
+    console.log(Width, height);
+
     
     // * Now a bit of looping
-    // let list = ["red","green","blue","yellow"];
+    let list = ["red","green","blue","yellow"];
+    for (let i = 0; i <list.length; i++){
+      console.log(list[i]);
+    }
     
     
+    for (let index in list){
+      console.log(list[index]);
+    }
     
+    for(let object of list){
+      console.log(object)
+    }
     
-    
+    list.forEach(d=> {
+      console.log(d)
+    })
     
     
     
